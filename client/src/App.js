@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
 
+import NewMovie from './components/NewMovies';
+import NewGenre from './components/NewGenres';
+import MoviesList from './components/MoviesList';
+import GenresList from './components/GenresList';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <div className="add_movie_and_genre">
+      <NewMovie movies={movies} genres={genres} setMovies={setMovies}/>
+      <NewGenre genres={genres} setGenres={setGenres}/>
+      </div>
+      <MoviesList movies={movies} setMovies={setMovies} genres={genres}/>
+      <GenresList genres={genres} setGenres={setGenres} setMovies={setMovies}/>
     </div>
   );
 }
